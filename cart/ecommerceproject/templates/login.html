@@ -1,0 +1,23 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% block metadescription %}
+
+        welcome to the Grocart
+
+{% endblock %}
+
+{% block title %}
+    SIGN IN AND EXPLORE
+{% endblock %}
+{% block content %}
+
+<form class="text-center" action="login" method="post">
+    {% csrf_token %}
+    <hr>
+    <hr>
+    <input type="text" name="username" placeholder="username"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <input type="submit" value="login"><br>
+
+</form>
+{% endblock %}

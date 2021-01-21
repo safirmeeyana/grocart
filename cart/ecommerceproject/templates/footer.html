@@ -1,0 +1,46 @@
+<!-- Footer -->
+<footer class=" text-center text-lg-start" style="background-color: rgba(0,0,0,1) ">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase" style="color:grey;">GroCart</h5>
+
+                <p style="color:grey;">
+                    We deliver to 25 cities across India and maintain excellent delivery times, ensuring that all your
+                    products from groceries to snacks branded foods reach you in time.Express Delivery: This super
+                    useful service can be availed by customers in cities like Bangalore, Mumbai, Pune, Chennai, Kolkata,
+                    Hyderabad and Delhi-NCR in which we deliver your orders to your doorstep in 90 Minutes.
+                </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0">
+                        {% for cat in links %}
+                    <li><a href="{{ cat.get_url }}" style="color:grey;">{{ cat.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="Accounts/login" style="color:grey;">LOGIN</a><br>
+                        <hr>
+                        <a href="Accounts/register" style="color:grey;">SIGN UP </a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+</footer>
+<!-- Footer -->

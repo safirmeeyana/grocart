@@ -1,0 +1,64 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!--      <a class="navbar-brand" href="#" img src="media/img/logo.png'" alt='it is a logo'></a>-->
+    <img src="{% static 'img/logo3.png' %}" alt='it is a logo'>
+    {%if user.is_authenticated %}
+    <li style="color:white">Welcome {{user.username}}</li>
+    <li><a class="btn btn-primary"  href="Accounts/logout" style="color:white">Logout</a></li>
+    {% else %}
+    &nbsp;<li><a class="btn btn-success " href="Accounts/register" >Sign Up</a></li>
+    &nbsp;<li><a class="btn btn-warning"  href="Accounts/login" > Sign In </a></li>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+<!--            </li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <h7 style="color:white">View Category</h7>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'ecommerceapp:allProdCat' %}">All Products</a>
+                    {% for cat in links %}
+                    <a class="dropdown-item" href="{{ cat.get_url }}">{{ cat.name }}</a>
+                    {% endfor %}
+                    <!--          <div class="dropdown-divider"></div>-->
+                    <!--          <a class="dropdown-item" href="#">Something else here</a>-->
+                    <!--        </div>-->
+            </li>
+            {% if item_count > 0 %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'cart:cart_detail' %}"><i class="fas fa-cart-plus"> {{item_count}}</i></a>
+            </li>
+            {% endif %}
+            <!--      <li class="nav-item">-->
+            <!--        <a class="nav-link disabled" href="#">Disabled</a>-->
+            <!--      </li>-->
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'search_app:searchResult' %}" method="get">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</nav>
+
+<!--<nav>-->
+<!--    <ul>-->
+<!--        <li><a href="{% url 'ecommerceapp:allProdCat' %}">ALL PRODUCTS</a> </li>-->
+<!--        {% for cat in links %}-->
+<!--            <li><a href="{{ cat.get_url }}">{{ cat.name }}</a> </li>-->
+
+<!--        {% endfor %}-->
+<!--     <li>your cart</li>-->
+<!--    </ul>-->
+
+
+<!--</nav><br>-->
